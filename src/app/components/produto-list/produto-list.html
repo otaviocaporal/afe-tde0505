@@ -1,8 +1,14 @@
 <section class="card">
     <h2>Produtos cadastrados</h2>
-    @if (produtos.length === 0) {
+
+    @if (carregando) {
+        <p>Carregando produtos...</p>
+    }
+
+    @if (produtos.length === 0 && !carregando) {
         <p>Nenhum produto cadastrado.</p>
-    } @else {
+    } 
+    @if (produtos.length > 0 && !carregando) {
         <table>
             <thead>
                 <tr>
